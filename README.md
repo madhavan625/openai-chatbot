@@ -5,14 +5,16 @@ This project is a simple Flask-based web application that demonstrates the use o
 ## Project Structure
 
 ```
-flask-app
-├── src
-│   ├── temp.py        # Main Flask application
-│   ├── temp.js        # Client-side JavaScript
-│   ├── temp.html      # HTML template
-│   └── temp.css       # CSS styles
+flask-app-1
+├── temp.py             # Main Flask application
 ├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
+├── Procfile            # Railway/Gunicorn start command
+├── README.md           # Project documentation
+├── static
+│   ├── temp.js         # Client-side JavaScript
+│   └── temp.css        # CSS styles
+└── templates
+    └── temp.html       # HTML template
 ```
 
 ## Setup Instructions
@@ -20,7 +22,7 @@ flask-app
 1. **Clone the repository:**
    ```
    git clone <repository-url>
-   cd flask-app
+   cd flask-app-1
    ```
 
 2. **Create a virtual environment:**
@@ -47,7 +49,7 @@ flask-app
 
 To run the Flask application locally, execute:
 ```
-python src/temp.py
+python temp.py
 ```
 For production or Railway deployment, use:
 ```
@@ -58,4 +60,4 @@ The application will be accessible at `http://127.0.0.1:5000/`.
 
 ## Contributing
 
-Feel free to submit issues or pull requests for improvements or bug fixes.a
+Feel free to submit issues or pull requests for improvements or bug fixes.

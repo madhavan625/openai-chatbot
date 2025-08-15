@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY")  # Store your API key in an environment variable
+    api_key=os.environ.get("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")  # Store your API key in an environment variable
 )
 
 @app.route('/')
@@ -25,3 +25,4 @@ def submit():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))  # Railway sets PORT
     app.run(host="0.0.0.0", port=port)
+

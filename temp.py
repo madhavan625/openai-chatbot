@@ -5,7 +5,7 @@ from openai import OpenAI
 app = Flask(__name__)
 
 # Load API key from environment
-api_key = os.environ.get("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")
+api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
     raise RuntimeError("OPENAI_API_KEY not set in environment variables")
 

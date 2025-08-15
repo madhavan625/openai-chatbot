@@ -4,11 +4,142 @@
     <meta charset="UTF-8">
     <title>saiteja Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='temp.css') }}">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+            color: #e0e0e0;
+            background: #181818;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Gradient blur backgrounds */
+        .gradient-bg {
+            position: absolute;
+            z-index: 0;
+            filter: blur(60px);
+            opacity: 0.7;
+        }
+        .gradient-bg.one {
+            top: -120px;
+            left: -120px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #00ffea 0%, #181818 80%);
+        }
+        .gradient-bg.two {
+            bottom: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #a777e3 0%, #181818 80%);
+        }
+        .gradient-bg.three {
+            top: 40%;
+            left: 60%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #00ffea 0%, #a777e3 80%);
+        }
+        #chat-container {
+            position: relative;
+            z-index: 1;
+            max-width: 440px;
+            margin: 60px auto;
+            background: rgba(24, 24, 24, 0.95);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,255,234,0.08), 0 2px 8px rgba(167,119,227,0.08);
+            padding: 32px 24px 20px 24px;
+            border: 1px solid #00ffea33;
+        }
+        #intro {
+            margin-bottom: 16px;
+            background: #232323;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 1.08em;
+            color: #00ffea;
+            box-shadow: 0 2px 8px rgba(0,255,234,0.08);
+            font-family: inherit;
+        }
+        #chat {
+            min-height: 180px;
+            max-height: 320px;
+            overflow-y: auto;
+            margin-bottom: 18px;
+            padding-right: 6px;
+            font-family: inherit;
+        }
+        .message {
+            margin: 8px 0;
+            padding: 10px 14px;
+            border-radius: 14px;
+            max-width: 80%;
+            word-break: break-word;
+            font-size: 1em;
+            font-family: inherit;
+            box-shadow: 0 1px 4px rgba(0,255,234,0.07);
+        }
+        .message.user {
+            background: #232323;
+            color: #00ffea;
+            align-self: flex-end;
+            margin-left: auto;
+            border: 1px solid #00ffea55;
+        }
+        .message.bot {
+            background: #232323;
+            color: #a777e3;
+            align-self: flex-start;
+            margin-right: auto;
+            border: 1px solid #a777e355;
+        }
+        form {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #00ffea55;
+            border-radius: 10px;
+            font-size: 1em;
+            background: #181818;
+            color: #e0e0e0;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        input[type="text"]:focus {
+            border-color: #a777e3;
+        }
+        button {
+            background: linear-gradient(135deg, #00ffea 0%, #a777e3 100%);
+            color: #181818;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 18px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: inherit;
+            transition: background 0.2s, color 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #a777e3 0%, #00ffea 100%);
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <div class="gradient-bg one"></div>
+    <div class="gradient-bg two"></div>
+    <div class="gradient-bg three"></div>
     <div id="chat-container">
         <div id="intro" class="message bot">
-            <strong>saiteja Chatbot:</strong> Welcome to powerfull's Chatbot!🔥 Tired of ChatGPT? Don't worry, just try me for faster outputs.
+            <strong>🌟Saiteja Chatbot:</strong> Welcome to powerfull's Chatbot! <span style="color:#a777e3;">&#128293;</span> Tired of ChatGPT? Don't worry, just try me for faster outputs🚀.
         </div>
         <div id="chat"></div>
         <form id="myForm">
